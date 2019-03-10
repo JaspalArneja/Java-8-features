@@ -1,14 +1,22 @@
 package lambda.expressions;
 
-public class LambdaExpressionOfParameterizedFunction {
+interface DemoInterfaceWithAddMethod {
+	public void add(int a, int b);
+}
 
+class DemoInterfaceWithAddMethodImpl implements DemoInterfaceWithAddMethod{
+	@Override
 	public void add(int a, int b) {
 		System.out.println(a + b);
 	}
+}
+
+public class LambdaExpressionOfParameterizedFunction {
 
 	public static void main(String[] args) {
-		// basic approach will be
-		LambdaExpressionOfParameterizedFunction obj = new LambdaExpressionOfParameterizedFunction();
+		
+		// Basic approach will be
+		DemoInterfaceWithAddMethod obj = new DemoInterfaceWithAddMethodImpl();
 		obj.add(2, 10);
 
 		/*
@@ -38,9 +46,4 @@ public class LambdaExpressionOfParameterizedFunction {
 		DemoInterfaceWithAddMethod demo = (a, b) -> System.out.println(a + b);
 		demo.add(2, 10);
 	}
-
-}
-
-interface DemoInterfaceWithAddMethod {
-	public void add(int a, int b);
 }

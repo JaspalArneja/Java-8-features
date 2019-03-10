@@ -1,15 +1,21 @@
 package lambda.expressions;
 
-public class LambdaWithOnlyOneParameter {
+interface DemoInterfaceWithSquareMethod {
+	public void squareIt(int n);
+}
 
+class DemoInterfaceWithSquareMethodImpl implements DemoInterfaceWithSquareMethod{
+	@Override
 	public void squareIt(int n) {
 		System.out.println(n * n);
 	}
+}
+public class LambdaWithOnlyOneParameter {
 
 	public static void main(String[] args) {
 
-		// basic approach will be
-		LambdaWithOnlyOneParameter obj = new LambdaWithOnlyOneParameter();
+		// Basic approach will be
+		DemoInterfaceWithSquareMethod obj = new DemoInterfaceWithSquareMethodImpl();
 		obj.squareIt(5);
 
 		/*
@@ -34,12 +40,8 @@ public class LambdaWithOnlyOneParameter {
 		 * 
 		 * This is the most concise lambda expression. Now try to implement it.
 		 */
+		
 		DemoInterfaceWithSquareMethod demo = n -> System.out.println(n * n);
 		demo.squareIt(5);
 	}
-
-}
-
-interface DemoInterfaceWithSquareMethod {
-	public void squareIt(int n);
 }
